@@ -1,0 +1,111 @@
+label {
+    display: inline-block;
+    margin-left: 9px;
+    margin-top: 20px;
+}
+.side {
+    width: 200px;
+    margin-left: -12px;
+    margin-top: -33px;
+    color: white;
+    background: #212529;
+}
+
+a.btn.btn-info.ng-star-inserted:hover {
+    border: none;
+    background: rgb(75, 52, 205);
+}
+a.btn.btn-success.ng-star-inserted:hover {
+    border: none;
+    background: rgb(0, 0, 0);
+}
+a.btn.btn-info.ng-star-inserted {
+    border: none;
+    background: black;
+}
+a.btn.btn-success[_ngcontent-tag-c68]:hover {
+    width: 106px;
+    background: #3f51b5;
+}
+a.btn.btn-success:hover {
+    background-color: blue;
+}
+.main{
+    display: flex;
+    margin-left: 339px;
+    margin-top: -60px;
+
+}
+input.form-control.ng-untouched.ng-pristine.ng-valid {
+    margin-left: 10px;
+    color: white;
+    
+}
+label {
+    display: inline-block;
+    margin-left: 48px;
+    margin-top: 20px;
+    color: white;
+}
+h1.text-center {
+    margin-top: 25px;
+}
+input.form-control.ng-untouched.ng-pristine.ng-valid {
+    margin-left: 10px;
+    color:white;
+}
+
+input.form-control.ng-pristine.ng-valid.ng-touched {
+    margin-left: -21px;
+}
+.form-control {
+    
+}
+select.classic {
+    display: block;
+        width: 100%;
+        margin-left: 20px;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    background-image:
+        linear-gradient(45deg, transparent 50%, blue 50%),
+        linear-gradient(135deg, blue 50%, transparent 50%),
+        linear-gradient(to right, skyblue, skyblue);
+    background-position:
+        calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px),
+        100% 0;
+    background-size:
+        5px 5px,
+        5px 5px,
+        2.5em 2.5em;
+    background-repeat: no-repeat;
+}
+
+select.classic:focus {
+    background-image:
+        linear-gradient(45deg, white 50%, transparent 50%),
+        linear-gradient(135deg, transparent 50%, white 50%),
+        linear-gradient(to right, gray, gray);
+    background-position:
+        calc(100% - 15px) 1em,
+        calc(100% - 20px) 1em,
+        100% 0;
+    background-size:
+        5px 5px,
+        5px 5px,
+        2.5em 2.5em;
+    background-repeat: no-repeat;
+    border-color: grey;
+    outline: 0;
+}

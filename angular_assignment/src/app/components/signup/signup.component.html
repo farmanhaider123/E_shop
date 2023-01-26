@@ -1,0 +1,260 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<section class="text-center text-lg-start">
+  <style>
+    .cascading-right {
+      margin-right: -50px;
+    }
+    .sub {
+      margin: 20px;
+      background: blue;
+      height: 31px;
+      border-radius: 20px;
+    }
+
+    button {
+      background: blue;
+      border: none;
+      color: white;
+      margin: 6px;
+      border-radius: 20px;
+    }
+    @media (max-width: 991.98px) {
+      .cascading-right {
+        margin-right: 0;
+      }
+    }
+  </style>
+
+  <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div
+          class="card cascading-right"
+          style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+          "
+        >
+          <div class="card-body p-5 shadow-5 text-center">
+            <h2 class="fw-bold mb-5">Sign up now</h2>
+            <form [formGroup]="myForm" (ngSubmit)="postData()">
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      name="firstName"
+                      class="form-control"
+                      formControlName="firstName"
+                      placeholder="First Name"
+                      maxlength="10"
+                    />
+                    <div
+                      class="form-control is-invalid"
+                      *ngIf="
+                        fdata['firstName'].invalid && fdata['firstName'].touched
+                      "
+                    >
+                      <div
+                        *ngIf="
+                          fdata['firstName'].errors &&
+                          fdata['firstName'].errors['required']
+                        "
+                      >
+                        First Name is required
+                      </div>
+                      <div
+                        *ngIf="
+                          fdata['firstName'].errors &&
+                          fdata['firstName'].errors['pattern']
+                        "
+                      >
+                        Only alphabte allow
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      name="lastName"
+                      class="form-control"
+                      formControlName="lastName"
+                      placeholder="Last Name"
+                      maxlength="10"
+                    />
+                    <div
+                      class="form-control is-invalid"
+                      *ngIf="
+                        fdata['lastName'].invalid && fdata['lastName'].touched
+                      "
+                    >
+                      <div
+                        *ngIf="
+                          fdata['lastName'].errors &&
+                          fdata['lastName'].errors['required']
+                        "
+                      >
+                        First Name is required
+                      </div>
+                      <div
+                        *ngIf="
+                          fdata['lastName'].errors &&
+                          fdata['lastName'].errors['pattern']
+                        "
+                      >
+                        Only alphabte allow
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  name="email"
+                  class="form-control"
+                  formControlName="email"
+                  maxlength="50"
+                  placeholder="Email Address"
+                />
+                <div
+                  class="form-control is-invalid"
+                  *ngIf="fdata['email'].invalid && fdata['email'].touched"
+                >
+                  <div
+                    *ngIf="
+                      fdata['email'].errors && fdata['email'].errors['required']
+                    "
+                  >
+                    Email is required
+                  </div>
+                  <div
+                    *ngIf="
+                      fdata['email'].errors && fdata['email'].errors['pattern']
+                    "
+                  >
+                    Invalid email example:farman12@gmail.com
+                  </div>
+                </div>
+              </div>
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  formControlName="password"
+                  placeholder="Password"
+                  maxlength="20"
+                />
+                <div
+                  class="form-control is-invalid"
+                  *ngIf="fdata['password'].invalid && fdata['password'].touched"
+                >
+                  <div
+                    *ngIf="
+                      fdata['password'].errors &&
+                      fdata['password'].errors['required']
+                    "
+                  >
+                    Password is required
+                  </div>
+                  <div
+                    *ngIf="
+                      fdata['password'].errors &&
+                      fdata['password'].errors['pattern']
+                    "
+                  >
+                    password should Minimum 8 charchter
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="contactNumber"
+                  class="form-control"
+                  formControlName="contactNumber"
+                  placeholder="ContactNumber"
+                  maxlength="12"
+                />
+              </div>
+              <div
+                class="form-control is-invalid"
+                *ngIf="
+                  fdata['contactNumber'].invalid &&
+                  fdata['contactNumber'].touched
+                "
+              >
+                <div
+                  *ngIf="
+                    fdata['contactNumber'].errors &&
+                    fdata['contactNumber'].errors['required']
+                  "
+                >
+                  Mobile is required
+                </div>
+                <div
+                  *ngIf="
+                    fdata['contactNumber'].errors &&
+                    fdata['contactNumber'].errors['pattern']
+                  "
+                >
+                  10 Digit Mobile Number & start From 6 -9
+                </div>
+              </div>
+              <!-- Submit button -->
+              <div class="sub">
+                <button type="submit" [disabled]="myForm.invalid">
+                  Sign up
+                </button>
+              </div>
+
+              <!-- Register buttons -->
+              <div class="text-center">
+                <p>or sign up with:</p>
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-google"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-twitter"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-github"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <img
+          src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+          class="w-100 rounded-4 shadow-4"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+  <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->

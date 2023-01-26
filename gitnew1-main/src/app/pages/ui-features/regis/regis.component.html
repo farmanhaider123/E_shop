@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Regis</title>
+  </head>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <div class="container">
+    <h4>Registration Yourself Here!!</h4>
+    <form [formGroup]="myForm" (ngSubmit)="postData()">
+      <div class="mb-3">
+        <div class="form-group">
+          <label>First Name</label>
+          <div class="a1">
+            <input
+              type="text"
+              class="form-control"
+              style="border: none"
+              id="firstName"
+              formControlName="firstName"
+            />
+            <i class="fa fa-user icon" style="font-size: 24px"></i>
+          </div>
+          <div
+            class="form-control is-invalid"
+            *ngIf="fdata['firstName'].invalid && fdata['firstName'].touched"
+          >
+            <div
+              *ngIf="
+                fdata['firstName'].errors &&
+                fdata['firstName'].errors['required']
+              "
+            >
+              Please Enter First Name
+            </div>
+            <div
+              *ngIf="
+                fdata['firstName'].errors &&
+                fdata['firstName'].errors['pattern']
+              "
+            >
+              First Name is not Valid!!
+            </div>
+            <div
+              *ngIf="
+                fdata['firstName'].errors &&
+                fdata['firstName'].errors['minlength']
+              "
+            >
+              enter more than 2 characters!!
+            </div>
+            <div
+              *ngIf="
+                fdata['firstName'].errors &&
+                fdata['firstName'].errors['maxlength']
+              "
+            >
+              Name should be less than 20 characters!!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-group">
+          <label>Last Name</label>
+          <div class="a1">
+            <input
+              type="text"
+              class="form-control"
+              style="border: none"
+              id="lastName"
+              formControlName="lastName"
+            />
+            <i class="fa fa-user icon" style="font-size: 24px"></i>
+          </div>
+          <div
+            class="form-control is-invalid"
+            *ngIf="fdata['lastName'].invalid && fdata['lastName'].touched"
+          >
+            <div
+              *ngIf="
+                fdata['lastName'].errors && fdata['lastName'].errors['required']
+              "
+            >
+              Please Enter Last Name
+            </div>
+            <div
+              *ngIf="
+                fdata['lastName'].errors && fdata['lastName'].errors['pattern']
+              "
+            >
+              Last Name is not Valid!!
+            </div>
+            <div
+              *ngIf="
+                fdata['lastName'].errors &&
+                fdata['lastName'].errors['minlength']
+              "
+            >
+              enter more than 2 characters!!
+            </div>
+            <div
+              *ngIf="
+                fdata['lastName'].errors &&
+                fdata['lastName'].errors['maxlength']
+              "
+            >
+              Name should be less than 20 characters!!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-group">
+          <label>Contact Number</label>
+          <div class="a1">
+            <input
+              type="contactNumber"
+              maxlength="10"
+              class="form-control"
+              style="border: none"
+              id="contactNumber"
+              formControlName="contactNumber"
+            />
+            <i class="fa fa-phone icon" style="font-size: 24px"></i>
+          </div>
+          <div
+            class="form-control is-invalid"
+            *ngIf="
+              fdata['contactNumber'].invalid && fdata['contactNumber'].touched
+            "
+          >
+            <div
+              *ngIf="
+                fdata['contactNumber'].errors &&
+                fdata['contactNumber'].errors['required']
+              "
+            >
+              contactNumber Number is required
+            </div>
+            <div
+              *ngIf="
+                fdata['contactNumber'].errors &&
+                fdata['contactNumber'].errors['pattern']
+              "
+            >
+              Enter Correct contactNumber Number!!
+            </div>
+          </div>
+          </div>
+      <select
+      class="form-select"
+      aria-label="Default select example"
+      
+     formControlName="role"
+    >
+      <option value="" selected>Choose User</option>
+      <option *ngFor="let cat of role">
+        {{ cat }}
+      </option>
+    </select>
+
+      <div class="mb-3">
+        <div class="form-group">
+          <label>Email address</label>
+          <div class="a1">
+            <input
+              type="email"
+              class="form-control"
+              style="border: none"
+              id="email"
+              formControlName="email"
+            />
+            <i class="fa fa-envelope icon"></i>
+          </div>
+          <div
+            class="form-control is-invalid"
+            *ngIf="fdata['email'].invalid && fdata['email'].touched"
+          >
+            <div
+              *ngIf="fdata['email'].errors && fdata['email'].errors['required']"
+            >
+              Email is required
+            </div>
+            <div
+              *ngIf="fdata['email'].errors && fdata['email'].errors['pattern']"
+            >
+              Enter Correct Email!!
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <div class="form-group">
+          <label>Password</label>
+          <div class="a1">
+            <input
+              type="password"
+              class="form-control"
+              style="border: none"
+              id="password"
+              formControlName="password"
+            />
+            <i class="fa fa-lock icon" style="font-size: 24px"></i>
+          </div>
+          <div
+            class="form-control is-invalid"
+            *ngIf="fdata['password'].invalid && fdata['password'].touched"
+          >
+            <div
+              *ngIf="
+                fdata['password'].errors && fdata['password'].errors['required']
+              "
+            >
+              Password is required
+            </div>
+            <div
+              *ngIf="
+                fdata['password'].errors && fdata['password'].errors['pattern']
+              "
+            >
+              Enter Correct Password!!
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- <div class="mb-3">
+    <div class="form-group">
+    <label>Enter OTP</label>
+    <div class="a1">
+        <input type="text" class="form-control"  maxlength="5"  style="border:none;" id="otp" formControlName="otp">
+        <i class="fa fa-key icon" style="font-size:24px"></i>
+    </div>
+    <div class="form-control is-invalid" *ngIf="fdata['otp'].invalid && fdata['otp'].touched">
+        <div *ngIf="fdata['otp'].errors && fdata['otp'].errors['required']">Please Enter OTP
+        </div>
+        <div *ngIf="fdata['otp'].errors && fdata['otp'].errors['pattern']">
+         Enter Correct OTP!!
+        </div>  
+    </div><br>
+        </div>
+  </div> -->
+      <button
+        style="width: 100%"
+        type="submit"
+        class="btn btn-success"
+        [disabled]="myForm.invalid"
+      >
+        Register
+      </button>
+      </div>
+    </form>
+  </div>
+</html>

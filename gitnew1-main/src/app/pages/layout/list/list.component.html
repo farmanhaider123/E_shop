@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="lists row">
+  <div class="col-md-12 col-lg-6 col-xxxl-6">
+    <nb-card class="list-card" id="a1">
+      <nb-card-header>Types of users</nb-card-header>
+      <nb-card-body>
+        <div>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            [(ngModel)]="data"
+          >
+            <option value="" selected>Choose User</option>
+            <option *ngFor="let cat of role">
+              {{ cat }}
+            </option>
+          </select>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-6">
+    <nb-card class="list-card" size="small">
+      <nb-card-header>Users accoriding to its role</nb-card-header>
+      <nb-list>
+        <nb-list-item *ngFor="let use of users | pipes : data : 'role'">
+          
+          <nb-user [name]="use.firstName" [title]="use.email"> </nb-user>
+          <button routerLink="/pages/layout/edit/{{use.email}}">Edit</button> <button routerLink="/pages/layout/view/{{use.email}}"> View</button> 
+        </nb-list-item>
+
+      </nb-list>
+    </nb-card>
+  </div>
+</div>
